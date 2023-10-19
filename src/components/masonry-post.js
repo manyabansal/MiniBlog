@@ -1,6 +1,5 @@
 import React from "react";
 import TagRow from "./tag-row";
-// import "bootstrap/dist/css/bootstrap.css";
 import "./css/masonry-post.css";
 export default function MasonryPost({ post, tagsOnTop, styles }) {
   const windowWidth = window.innerWidth;
@@ -16,7 +15,7 @@ export default function MasonryPost({ post, tagsOnTop, styles }) {
       : { ...imageBackground, ...styles };
 
   async function addClick() {
-    await fetch(`http://127.0.0.1:8000/post/${post._id}?set=click`, {
+    await fetch(`https://miniblog-cxzz.onrender.com/post/${post._id}?set=click`, {
       method: "PATCH",
       credentials: "include",
     });

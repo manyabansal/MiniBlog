@@ -21,7 +21,7 @@ app.use((req, res, next) => {
   next();
 });
 
-const HOST = "https://miniblog-api.onrender.com";
+const HOST = "https://cool-sopapillas-1fdf93.netlify.app";
 const salt = bcrypt.genSaltSync(10);
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -31,7 +31,7 @@ app.use(express.json());
 
 mongoose
   .connect(
-    "mongodb+srv://maanyab007:Ashok1612%40@cluster0.4fhwczw.mongodb.net/blogDB?retryWrites=true&w=majority",
+    process.env.MONGODB_URI,
     { useNewUrlParser: true, useUnifiedTopology: true }
   )
   .then(() => {

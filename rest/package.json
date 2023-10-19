@@ -4,7 +4,11 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "build": "react-scripts build"
+  },
+  "build": {
+    "outputPath": "client/build"
   },
   "author": "Manya Bansal",
   "license": "ISC",

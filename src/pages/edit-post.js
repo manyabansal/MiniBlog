@@ -45,7 +45,7 @@ export default function CreatePost() {
   const [redirect, setRedirect]= useState(false);
   
   useEffect(()=>{
-    fetch(`http://127.0.0.1:8000/post/${id}`,{
+    fetch(`https://miniblog-cxzz.onrender.com/post/${id}`,{
         credentials: "include",
     }).then(res=>{
         res.json().then(postInfo=>{
@@ -70,7 +70,7 @@ export default function CreatePost() {
     data.set("category2", category2);
     data.set('id',id)
    
-   const response = await fetch('http://127.0.0.1:8000/post', {
+   const response = await fetch('https://miniblog-cxzz.onrender.com/post', {
         method: 'PUT',
         body: data,
         credentials: "include",

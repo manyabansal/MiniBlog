@@ -3,7 +3,6 @@ import MasonryPost from "./masonry-post.js";
 import "./css/post-masonry.css";
 
 export default function PostMasonry({ posts, columns, tagsOnTop }) {
-  // console.log(posts);
   return (
     <section
       className="masonry"

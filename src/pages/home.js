@@ -43,7 +43,7 @@ function Home() {
   const [lastPost, setLastPost] = useState(null);
   const [recentPosts, setRecent] = useState([]);
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/post")
+    fetch("https://miniblog-cxzz.onrender.com/post")
       .then(async (response) => {
         await response.json().then((posts) => {
           setTrending(posts.trending);

@@ -10,7 +10,7 @@ function SignUp() {
   const [userTaken, setUserTaken]= useState(false);
   async function register(ev) {
     ev.preventDefault();
-    const response= await fetch("http://127.0.0.1:8000/sign-up", {
+    const response= await fetch("https://miniblog-cxzz.onrender.com/sign-up", {
       method: "POST",
       body: JSON.stringify({ username, password }),
       headers: {
@@ -32,22 +32,6 @@ function SignUp() {
   return (
     <main className="form-signin w-100 m-auto">
       <form onSubmit={register}>
-        {/* <div className="d-flex align-items-center justify-content-center justify-content-lg-start h3 mb-3">
-          <button type="button" className="btn google-button">
-            <span className="d-flex align-items-center justify-content-center">
-              <img
-                src={require("./images/google-icon.png")}
-                className="me-3"
-                alt="Google Icon"
-              />
-              <h5 className="fw-normal mb-0">Sign up with Google</h5>
-            </span>
-          </button>
-        </div>
-
-        <div className="divider d-flex justify-content-center align-items-center my-4">
-          <p className="text-center fw-bold mx-3 mb-0">Or</p>
-        </div> */}
         <h2>Sign up!</h2>
         <div className="form-floating">
           <input

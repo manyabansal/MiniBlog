@@ -12,7 +12,7 @@ function Search() {
     ev.preventDefault();
     try {
       await fetch(
-        `http://127.0.0.1:8000/posts?search=${encodeURIComponent(search)}`
+        `https://miniblog-cxzz.onrender.com/posts?search=${encodeURIComponent(search)}`
       ).then(async (res) => {
         await res.json().then((posts) => {
           setPosts(posts);
@@ -46,9 +46,6 @@ function Search() {
             </span>
           </form>
         </div>
-        {/* <div className="search-hint">
-        Search by tags: Add a '#' symbol before the tag you want to search for. e.g #example
-      </div> */}
       </div>
     
       <div

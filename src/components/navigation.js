@@ -30,7 +30,7 @@ function Navigation() {
   const {userInfo, setUserInfo}=useContext(UserContext);
   useEffect(() => {
    
-    fetch("http://127.0.0.1:8000/profile", {
+    fetch("https://miniblog-cxzz.onrender.com/profile", {
       credentials: "include",
     }).then((res) => {
       res.json().then(async (userInfo) => {
@@ -41,7 +41,7 @@ function Navigation() {
   }, []);
 
   function logout() {
-    fetch("http://127.0.0.1:8000/logout", {
+    fetch("https://miniblog-cxzz.onrender.com/logout", {
       method: "POST",
       credentials: "include",
     }).then(()=>{
