@@ -21,13 +21,13 @@ app.use((req, res, next) => {
   next();
 });
 
-const HOST = "https://cool-sopapillas-1fdf93.netlify.app";
+const HOST = "http://localhost:3000";
 const salt = bcrypt.genSaltSync(10);
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(cors({ credentials: true, origin: HOST }));
-app.use(express.json());
+app.use(express.json())
 
 mongoose
   .connect(
@@ -435,6 +435,6 @@ app.get("/posts", async (req, res) => {
 });
 ///////////////////////////////////////APP.LISTEN////////////////////////////////////////////
   
-app.listen(8000, function (req, res) {
+app.listen(process.env.PORT||8000, function (req, res) {
   console.log("Server is running");
 });
