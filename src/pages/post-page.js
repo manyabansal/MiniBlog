@@ -20,14 +20,14 @@ export default function PostPage() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const userResponse = await fetch(`https://miniblog-cxzz.onrender.com/profile`, {
+        const userResponse = await fetch(`/api/profile`, {
           method: 'GET',
           credentials: "include",
         });
         const userData = await userResponse.json();
         setUser(userData);
         
-        const postResponse = await fetch(`https://miniblog-cxzz.onrender.com/post/${id}`);
+        const postResponse = await fetch(`/api/post/${id}`);
         const postInfoData = await postResponse.json();
         setPostInfo(postInfoData);
        
@@ -50,7 +50,7 @@ export default function PostPage() {
   
 
   async function deletePost(){
-    const response = await fetch(`https://miniblog-cxzz.onrender.com/post/${id}`,{
+    const response = await fetch(`/api/post/${id}`,{
       method: "DELETE"
     }).catch(err=>console.log(err));
 
@@ -62,14 +62,14 @@ export default function PostPage() {
   async function setLike(){
     try{
       if(isLiked){
-        await fetch(`https://miniblog-cxzz.onrender.com/post/${id}?set=removeLike`,{
+        await fetch(`/api/post/${id}?set=removeLike`,{
           method: "PATCH",
           credentials: "include",
         }).catch(err=>console.log(err));
         setHeartClass('fa-regular');
       }
       else{
-        await fetch(`https://miniblog-cxzz.onrender.com/post/${id}?set=addLike`,{
+        await fetch(`/api/post/${id}?set=addLike`,{
           method: "PATCH",
           credentials: "include",
         }).catch(err=>console.log(err));

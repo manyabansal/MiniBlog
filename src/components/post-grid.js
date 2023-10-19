@@ -25,7 +25,7 @@ export default function PostGrid({
     return posts.slice(firstIndex, lastIndex);
   }, [current]);
   async function addClick(post) {
-    await fetch(`https://miniblog-cxzz.onrender.com/post/${post._id}?set=click`, {
+    await fetch(`/api/post/${post._id}?set=click`, {
       method: "PATCH",
       credentials: "include",
     });

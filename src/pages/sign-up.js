@@ -10,7 +10,7 @@ function SignUp() {
   const [userTaken, setUserTaken]= useState(false);
   async function register(ev) {
     ev.preventDefault();
-    const response= await fetch("https://miniblog-cxzz.onrender.com/sign-up", {
+    const response= await fetch("/api/sign-up", {
       method: "POST",
       body: JSON.stringify({ username, password }),
       headers: {

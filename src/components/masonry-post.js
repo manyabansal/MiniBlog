@@ -15,7 +15,7 @@ export default function MasonryPost({ post, tagsOnTop, styles }) {
       : { ...imageBackground, ...styles };
 
   async function addClick() {
-    await fetch(`https://miniblog-cxzz.onrender.com/post/${post._id}?set=click`, {
+    await fetch(`/api/post/${post._id}?set=click`, {
       method: "PATCH",
       credentials: "include",
     });

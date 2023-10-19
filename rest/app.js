@@ -21,7 +21,7 @@ app.use((req, res, next) => {
   next();
 });
 
-const HOST = "http://localhost:3000";
+const HOST = "https://miniblogproject.netlify.app/";
 const salt = bcrypt.genSaltSync(10);
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -42,12 +42,12 @@ mongoose
   });
 
 //////////////////////////////////////"""/"""//////////////////////////////////////////////////
-app.get("/", (req, res) => {
+app.get("/api/", (req, res) => {
   res.send("ok");
 });
 
 ///////////////////////////////////////"""/sign-up"""////////////////////////////////////////////
-app.post("/sign-up", (req, res) => {
+app.post("/api/sign-up", (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
 
@@ -74,7 +74,7 @@ app.post("/sign-up", (req, res) => {
 
 ///////////////////////////////////////"""/login"""////////////////////////////////////////////
 
-app.post("/login", function (req, res) {
+app.post("/api/login", function (req, res) {
   const username = req.body.username;
   const password = req.body.password;
 
@@ -112,7 +112,7 @@ app.post("/login", function (req, res) {
 
 ///////////////////////////////////////"""/profile"""////////////////////////////////////////////
 
-app.get("/profile", async (req, res) => {
+app.get("/api/profile", async (req, res) => {
   const token = req.cookies.token;
   if (!token) {
     return res.status(401).json({ message: "Unauthorized" });
@@ -123,7 +123,7 @@ app.get("/profile", async (req, res) => {
 
 ///////////////////////////////////////"""/logout"""////////////////////////////////////////////
 
-app.post("/logout", (req, res) => {
+app.post("/api/logout", (req, res) => {
   res
     .clearCookie(`token`, {
       path: "/",
@@ -137,7 +137,7 @@ app.post("/logout", (req, res) => {
 ///////////////////////////////////////"""/post"""////////////////////////////////////////////
 /////////POST
 app
-  .post("/post", upload.single("file"), async (req, res) => {
+  .post("/api/post", upload.single("file"), async (req, res) => {
     const { originalname, path } = req.file;
     const parts = originalname.split(".");
     const ext = parts[parts.length - 1];
@@ -190,7 +190,7 @@ app
     res.json(postDoc);
   })
   ////////PUT
-  .put("/post", upload.single("file"), async (req, res) => {
+  .put("/api/post", upload.single("file"), async (req, res) => {
     const { token } = req.cookies;
     if (!token) {
       return res.status(401).json({ message: "Unauthorized" });
@@ -262,7 +262,7 @@ app
     res.json(updatedPostDoc);
   })
   ///////GET
-  .get("/post", async (req, res) => {
+  .get("/api/post", async (req, res) => {
     const trending = await Post.find()
       .sort({ clicks: -1 }) // Sort in descending order of clicks
       .limit(5)
@@ -303,7 +303,7 @@ app
 ///////////////////////////////////////"""/post/:id"""////////////////////////////////////////////
 //////GET
 app
-  .get("/post/:id", async (req, res) => {
+  .get("/api/post/:id", async (req, res) => {
     const { id } = req.params;
     try {
       const postDoc = await Post.findById(id)
@@ -321,7 +321,7 @@ app
     }
   })
   ///////PATCH
-  .patch("/post/:id", async (req, res) => {
+  .patch("/api/post/:id", async (req, res) => {
     const { token } = req.cookies;
     const { id } = req.params;
     const change= req.query.set;
@@ -363,7 +363,7 @@ app
     res.json(updatedPostDoc);
   })
   /////DELETE
-  .delete("/post/:id", async (req, res) => {
+  .delete("/api/post/:id", async (req, res) => {
     const { id } = req.params;
     const postDoc = await Post.findById(id);
     const imagePath = postDoc?.image;
@@ -383,7 +383,7 @@ app
   
 ///////////////////////////////////////"""/posts/:userid"""////////////////////////////////////////////
 
-app.get("/posts/:id", async (req, res) => {
+app.get("/api/posts/:id", async (req, res) => {
   const { id } = req.params;
   const userDoc = await User.findById(id, ["username"]);
   const posts = await Post.find({ author: userDoc._id })
@@ -395,7 +395,7 @@ app.get("/posts/:id", async (req, res) => {
 
 ///////////////////////////////////////"""/user/:id"""////////////////////////////////////////////
 
-app.get("/user/:id", async (req, res) => {
+app.get("/api/user/:id", async (req, res) => {
   const { id } = req.params;
   const userDoc = await User.findById(id, ["username"]);
 
@@ -404,7 +404,7 @@ app.get("/user/:id", async (req, res) => {
 
 //////////////////////////////////////"/posts"/////////////////////////////////////
 
-app.get("/posts", async (req, res) => {
+app.get("/api/posts", async (req, res) => {
   const substring = req.query.search;
   const isTag= substring?.startsWith("#")
   const tagSub= await substring?.slice(1).toUpperCase();

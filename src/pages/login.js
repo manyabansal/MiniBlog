@@ -9,7 +9,7 @@ function Login() {
   const [userExist, setUserExist] =useState(true);
     async function login(ev){
      ev.preventDefault();
-     const response= await fetch("https://miniblog-cxzz.onrender.com/login",{
+     const response= await fetch("/api/login",{
       method: 'POST',
       body: JSON.stringify({username, password}),
       headers:{

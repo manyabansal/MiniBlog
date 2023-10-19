@@ -30,7 +30,7 @@ function Navigation() {
   const {userInfo, setUserInfo}=useContext(UserContext);
   useEffect(() => {
    
-    fetch("https://miniblog-cxzz.onrender.com/profile", {
+    fetch("/api/profile", {
       credentials: "include",
     }).then((res) => {
       res.json().then(async (userInfo) => {
@@ -41,7 +41,7 @@ function Navigation() {
   }, []);
 
   function logout() {
-    fetch("https://miniblog-cxzz.onrender.com/logout", {
+    fetch("/api/logout", {
       method: "POST",
       credentials: "include",
     }).then(()=>{

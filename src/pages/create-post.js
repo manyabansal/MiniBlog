@@ -53,7 +53,7 @@ export default function CreatePost() {
     data.set("category2", category2);
     ev.preventDefault();
  
-   const response= await fetch('https://miniblog-cxzz.onrender.com/post', {
+   const response= await fetch('/api/post', {
         method: 'POST',
         body: data,
         credentials: "include",

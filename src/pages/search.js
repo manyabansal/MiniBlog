@@ -12,7 +12,7 @@ function Search() {
     ev.preventDefault();
     try {
       await fetch(
-        `https://miniblog-cxzz.onrender.com/posts?search=${encodeURIComponent(search)}`
+        `/api/posts?search=${encodeURIComponent(search)}`
       ).then(async (res) => {
         await res.json().then((posts) => {
           setPosts(posts);

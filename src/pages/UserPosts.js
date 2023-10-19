@@ -10,7 +10,7 @@ function UserPosts(){
     const [author, setAuthor]= useState({});
   useEffect(() => {
    
-    fetch(`https://miniblog-cxzz.onrender.com/posts/${id}`, {
+    fetch(`/api/posts/${id}`, {
       credentials: "include",
     }).then((res) => {
       res.json().then((posts) => {
@@ -18,7 +18,7 @@ function UserPosts(){
       });
     });
 
-    fetch("https://miniblog-cxzz.onrender.com/profile", {
+    fetch("/api/profile", {
       credentials: "include",
     }).then((res) => {
       res.json().then((userInfo) => {
@@ -27,7 +27,7 @@ function UserPosts(){
       });
     })
 
-    fetch(`https://miniblog-cxzz.onrender.com/user/${id}`).then(response =>{
+    fetch(`/api/user/${id}`).then(response =>{
       response.json().then(authorInfo=>{
         setAuthor(authorInfo);
       })

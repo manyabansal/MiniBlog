@@ -12,6 +12,7 @@
     "bootstrap": "^5.3.0",
     "dotenv": "^16.3.1",
     "file-api": "^0.10.4",
+    "http-proxy-middleware": "^2.0.6",
     "mongodb": "^6.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

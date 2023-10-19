@@ -45,7 +45,7 @@ export default function CreatePost() {
   const [redirect, setRedirect]= useState(false);
   
   useEffect(()=>{
-    fetch(`https://miniblog-cxzz.onrender.com/post/${id}`,{
+    fetch(`/api/post/${id}`,{
         credentials: "include",
     }).then(res=>{
         res.json().then(postInfo=>{
@@ -70,7 +70,7 @@ export default function CreatePost() {
     data.set("category2", category2);
     data.set('id',id)
    
-   const response = await fetch('https://miniblog-cxzz.onrender.com/post', {
+   const response = await fetch('/api/post', {
         method: 'PUT',
         body: data,
         credentials: "include",
