@@ -1,0 +1,83 @@
+.pagination-container {
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
+    grid-gap: 30px;
+    grid-auto-rows: 1fr;
+    padding-bottom: 50px;
+}
+
+.post-grid img {
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+    object-fit: cover;
+    object-position: center center;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    min-height: 225px;
+    max-height: 280px;
+}
+
+figure {
+    height: 100%;
+    max-height: 280px;
+}
+
+figure.post-image::after{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    max-height: 280px;
+    min-height: 225px;
+    margin: 0;
+}
+.author-text {
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.post-container a{
+    text-decoration: none;
+   color: black;
+}
+.post-container .author-text a {
+    padding: 0 5px;
+    text-decoration: underline;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+/*///////////////////////////// ant-pagination styles ///////////////////////////////*/
+
+:where(.css-dev-only-do-not-override-1wazalj).ant-pagination .ant-pagination-item {
+    background-color: transparent;
+    border-radius: 100%;
+    color: #555;
+}
+
+:where(.css-dev-only-do-not-override-1wazalj).ant-pagination .ant-pagination-item-active {
+    color: #555;
+    border-color: #D3D3D3;
+}
+
+:where(.css-dev-only-do-not-override-1wazalj).ant-pagination .ant-pagination-item:hover {
+    background-color: rgba(0, 0, 0, 0.06);
+}
+
+:where(.css-dev-only-do-not-override-1wazalj).ant-pagination .ant-pagination-item-active:hover {
+    color: #555;
+    border-color: rgba(0, 0, 0, 0.06);
+    ;
+}
+
+:where(.css-dev-only-do-not-override-1wazalj).ant-pagination .ant-pagination-prev .ant-pagination-item-link:hover {
+    background-color: transparent;
+}
+
+:where(.css-dev-only-do-not-override-1wazalj).ant-pagination .ant-pagination-next .ant-pagination-item-link:hover {
+    background-color: transparent;
+}

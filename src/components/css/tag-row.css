@@ -1,0 +1,17 @@
+.tags-container {
+    font-size: 12px;
+    font-weight: 500;
+    margin-left: -1px;
+    top: 0;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.tags-container .tag {
+    border-radius: 10px;
+    padding: 4px 8px;
+    margin-right: 5px;
+}
+.tags-container span{
+    display: inline;
+}

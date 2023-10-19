@@ -1,0 +1,91 @@
+.post-box {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 20px;
+}
+
+.post-text {
+    display: grid;
+    height: 320px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.post-text h2 {
+    cursor: pointer;
+  margin: 17px auto 5px 5px;
+  font-size: 1.6rem;
+  justify-self: flex-start;
+  text-decoration: none;
+}
+.post-text p{
+    color: rgba(0, 0, 0, 0.65);
+    align-self: center;
+}
+
+.post-image img {
+  margin: 20px auto;
+  height: 300px;
+  width: 100%;
+  border-radius: 5px;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.post-box .post-image img{
+  position: relative;
+}
+.post-box .post-image .post-tags{
+  float: left;
+  width: 100%;
+  z-index: 10;
+  left: 0;
+  margin-top: 40px;
+  margin-left: 20px;
+  position: absolute;
+}
+
+.post-text span {
+  display: inline;
+  font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.65);
+  font-weight: 500;
+  margin-left: 5px;
+}
+
+.post-text .author-text:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.post-container {
+  position: relative;
+}
+
+.post-image {
+  position: relative;
+}
+
+.post-image::after {
+    cursor: pointer;
+  content: "";
+  height: 300px;
+  position: absolute;
+  margin-top: 20px;
+  border-radius: 5px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(rgb(0, 0, 0, 0), rgb(0, 0, 0, 1));
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.post-image:hover::after {
+  opacity: 0.9;
+}
+
+.post-text .post-tags .tags-container{
+  margin-top: 10px;
+}
