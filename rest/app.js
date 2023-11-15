@@ -21,12 +21,12 @@ app.use((req, res, next) => {
   next();
 });
 
-const HOST = "https://miniblogproject.netlify.app/";
+const HOST = "http://localhost:3000/";
 const salt = bcrypt.genSaltSync(10);
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
-app.use(cors({ credentials: true, origin: HOST }));
+app.use(cors({ credentials: true, origin: [HOST, "https://miniblogproject.netlify.app"] }));
 app.use(express.json())
 
 mongoose
