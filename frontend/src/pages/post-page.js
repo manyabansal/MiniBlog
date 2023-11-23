@@ -89,7 +89,7 @@ export default function PostPage() {
     <div className="post-page">
       <div className="post-page-image">
         <img
-          src={`${require(`../../../rest/uploads/${postInfo.image.slice(8)}`)}`}
+          src={`${`https://miniblog-cxzz.onrender.com/${postInfo.image}`}`}
         />
       </div>
       <h1>{postInfo.title}</h1>

@@ -4,9 +4,7 @@ import "./css/masonry-post.css";
 export default function MasonryPost({ post, tagsOnTop, styles }) {
   const windowWidth = window.innerWidth;
   const imageBackground = {
-    backgroundImage: post.image && `url("${require(`../../../rest/uploads/${post.image.slice(
-      8
-    )}`)}")`,
+    backgroundImage: post.image && `url("${`https://miniblog-cxzz.onrender.com/${post.image}`}")`,
   };
 
   const style =

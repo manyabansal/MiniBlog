@@ -141,10 +141,10 @@ app
   .post("/api/post", upload.single("file"), async (req, res) => {
     
     console.log(req.file);
-    const { originalname, path } = req.file;
+    const { originalname, path, filename } = req.file;
     const parts = originalname.split(".");
     const ext = parts[parts.length - 1];
-    const newPath = path + "." + ext;
+    const newPath = filename + "." + ext;
     fs.renameSync(path, newPath);
     const { title, summary, content, category1, category2 } = req.body;
 

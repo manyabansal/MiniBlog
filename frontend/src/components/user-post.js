@@ -24,7 +24,7 @@ export default function UserPost({ post}) {
         className={`post-image`}
       >
         <img
-          src={`${require(`../../../rest/uploads/${post.image.slice(8)}`)}`}
+          src={`${`https://miniblog-cxzz.onrender.com/${post.image}`}`}
           alt="Post Image"
         />
         

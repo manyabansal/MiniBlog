@@ -2,7 +2,6 @@ import React, { useMemo } from "react";
 import { Pagination } from "antd";
 import TagRow from "./tag-row";
 import { Link } from "react-router-dom";
-// import "bootstrap/dist/css/bootstrap.css";
 import "./css/post-grid.css";
 
 export default function PostGrid({
@@ -42,7 +41,7 @@ export default function PostGrid({
                 
                  
                   <img
-                    src={require(`../../../rest/uploads/${post.image.slice(8)}`)}
+                    src={`https://miniblog-cxzz.onrender.com/${post.image}`}
                     alt={post.image}
                   />
                  
