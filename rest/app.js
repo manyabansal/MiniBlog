@@ -10,7 +10,18 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
 const multer = require("multer");
+// const storage= multer.diskStorage({
+//   destination: (req, file, cb)=>{
+//     cb(null, 'uploads')
+//   },
+//   filename: (req,file,cb)=>{
+//     cb(null,file.name)
+//   }
+// })
 const upload = multer({ dest: "uploads/" });
+// const upload=multer({
+//   storage:storage
+// })
 const fs = require("fs");
 const moment = require("moment");
 const categoryColors = require("./assets/category-colors.js");
@@ -138,6 +149,8 @@ app.post("/api/logout", (req, res) => {
 /////////POST
 app
   .post("/api/post", upload.single("file"), async (req, res) => {
+    
+    console.log(req.file);
     const { originalname, path } = req.file;
     const parts = originalname.split(".");
     const ext = parts[parts.length - 1];
