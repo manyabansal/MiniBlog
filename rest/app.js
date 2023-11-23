@@ -10,18 +10,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
 const multer = require("multer");
-// const storage= multer.diskStorage({
-//   destination: (req, file, cb)=>{
-//     cb(null, 'uploads')
-//   },
-//   filename: (req,file,cb)=>{
-//     cb(null,file.name)
-//   }
-// })
 const upload = multer({ dest: "uploads/" });
-// const upload=multer({
-//   storage:storage
-// })
 const fs = require("fs");
 const moment = require("moment");
 const categoryColors = require("./assets/category-colors.js");
@@ -31,6 +20,7 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Credentials", "true");
   next();
 });
+app.use('/uploads', express.static('uploads'));
 
 const HOST = "http://localhost:3000/";
 const salt = bcrypt.genSaltSync(10);
@@ -446,6 +436,7 @@ app.get("/api/posts", async (req, res) => {
   }
  
 });
+
 ///////////////////////////////////////APP.LISTEN////////////////////////////////////////////
   
 app.listen(process.env.PORT||8000, function (req, res) {
