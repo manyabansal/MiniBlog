@@ -20,7 +20,7 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Credentials", "true");
   next();
 });
-app.use('/uploads', express.static('uploads'));
+app.use(express.static('uploads'));
 
 const HOST = "http://localhost:3000/";
 const salt = bcrypt.genSaltSync(10);
